@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{--  --}}
+    {{-- --}}
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -36,34 +36,43 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
-    {{--  --}}
+    {{-- --}}
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="tw-font-sans tw-antialiased tw-text-gray-900 dark:tw-text-gray-200">
+<body class="tw-font-sans tw-antialiased tw-text-gray-900 dark:tw-text-gray-200 container-fluid m-0 p-0">
     <div class="tw-min-h-screen tw-bg-gray-100 dark:tw-bg-gray-900">
         @include('layouts.navigation')
         @include('layouts.sidebar')
 
         <!-- Page Heading -->
         {{-- @if (isset($header))
-            <header class="tw-bg-white dark:tw-bg-gray-800 tw-shadow">
-                <div class="tw-max-w-7xl tw-mx-auto tw-py-6 tw-px-4 sm:tw-px-6 lg:tw-px-8">
-                    {{ $header }}
-                </div>
-            </header>
+        <header class="tw-bg-white dark:tw-bg-gray-800 tw-shadow">
+            <div class="tw-max-w-7xl tw-mx-auto tw-py-6 tw-px-4 sm:tw-px-6 lg:tw-px-8">
+                {{ $header }}
+            </div>
+        </header>
         @endif --}}
-
-        <!-- Page Content -->
-        <main class=" content-wrapper">
+        <div class="content-wrapper">
             {{-- {{ $slot }} --}}
-            @yield('content')
-        </main>
-    </div>
+            <div class="d-flex justify-between align-content-center">
+                @yield('header')
+            </div>
+
+
+            <!-- Page Content -->
+            <main class="content">
+                {{-- {{ $slot }} --}}
+                <div class="">
+                    @yield('content')
+                </div>
+        </div>
+
+
 </body>
 @include('layouts.footer')
-{{--  --}}
+{{-- --}}
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -95,10 +104,11 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js') }}"></script>
+{{--
+<script src="{{ asset('dist/js/demo.js') }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-{{--  --}}
+{{-- --}}
 @stack('scripts')
 
 </html>
