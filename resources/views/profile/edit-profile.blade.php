@@ -35,7 +35,7 @@
                     @csrf
                 </form>
 
-                <form method="post" action="{{ route('profile.update') }}" class="tw-w-full tw-space-y-6">
+                <form method="post" action="{{ route('profile.update') }}" class="tw-w-full tw-space-y-6" id="form">
                     @csrf
                     @method('patch')
 
@@ -43,16 +43,16 @@
                         <x-input-label for="name" :value="__('Name')"
                             class="tw-block tw-font-medium tw-text-sm tw-text-gray-700 dark:tw-text-gray-800 text-dark" />
                         <x-text-input id="name" name="name" type="text" class="tw-mt-1 tw-block tw-w-full"
-                            style="width: 100% !important;" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-                        <x-input-error class="tw-mt-2" :messages="$errors->get('name')" />
+                            style="width: 100% !important;" :value="old('name', $user->name)" autofocus autocomplete="name" />
+                        {{-- <x-input-error class="tw-mt-2" :messages="$errors->get('name')" /> --}}
                     </div>
 
                     <div class="form-group">
                         <x-input-label for="email" :value="__('Email')"
                             class="tw-block tw-font-medium tw-text-sm tw-text-gray-700 dark:tw-text-gray-800 text-dark" />
                         <x-text-input id="email" name="email" type="email" class="tw-mt-1 tw-block tw-w-full"
-                            :value="old('email', $user->email)" required autocomplete="username" />
-                        <x-input-error class="tw-mt-2" :messages="$errors->get('email')" />
+                            :value="old('email', $user->email)" autocomplete="username" />
+                        {{-- <x-input-error class="tw-mt-2" :messages="$errors->get('email')" /> --}}
 
                         @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                             <div>
@@ -91,3 +91,6 @@
         {{-- </div> --}}
 
     @endsection
+    @push('scripts')
+        {!! JsValidator::formRequest('App\Http\Requests\ProfileUpdateRequest', '#form') !!}
+    @endpush
