@@ -10,6 +10,12 @@ use Illuminate\Validation\Rules\Password;
 
 class PasswordController extends Controller
 {
+    public function edit(Request $request)
+    {
+        return view('profile.edit-password', [
+            'user' => $request->user(),
+        ]);
+    }
     /**
      * Update the user's password.
      */

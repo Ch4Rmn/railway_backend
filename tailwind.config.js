@@ -1,9 +1,10 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
+import theme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-    // darkMode: (mediaQuery) => mediaQuery("prefers-color-scheme: white"),
+    darkMode: (mediaQuery) => mediaQuery("prefers-color-scheme: white"),
     prefix: "tw-",
     important: true,
     content: [
@@ -19,6 +20,15 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            },
+            backgroundImage: {
+                theme: "linear-gradient(90deg,rgb(185, 104, 104) 0%,rgb(32, 192, 144) 100%)",
+            },
+            backgroundColor: {
+                theme: "#f9f9f9",
+            },
+            textColor: {
+                theme: "#1CBC9B",
             },
         },
     },

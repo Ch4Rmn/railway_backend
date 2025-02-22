@@ -132,12 +132,69 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-                role="button">
-                <i class="fas fa-th-large"></i>
+        {{--  --}}
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+                {{-- <span class="badge badge-warning navbar-badge">15</span> --}}
             </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                {{-- <span class="dropdown-item dropdown-header">15 Notifications</span> --}}
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('edit-profile') }}" class="dropdown-item">
+                    <i class="fas fa-user-edit mr-2"></i> Edit Profile
+                    {{-- <span class="float-right text-muted text-sm">3 mins</span> --}}
+                </a>
+                {{--  --}}
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('edit-password') }}" class="dropdown-item">
+                    <i class="fas fa-key mr-2"></i> Edit Password
+                    {{-- <span class="float-right text-muted text-sm">3 mins</span> --}}
+                </a>
+                {{--  --}}
+                <div class="dropdown-divider"></div>
+                <form method="POST" action="{{ route('logout') }}" class="" style="cursor: pointer">
+                    @csrf
+                    <a :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                        class="dropdown-item">
+                        <i class="fas fa-sign-out-alt mr-2 text-danger"></i> <span class="text-danger">Log out</span>
+                        {{-- <span class="float-right text-muted text-sm">12 hours</span> --}}
+                    </a>
+                </form>
+
+
+                {{--  --}}
+                {{-- <div class="dropdown-divider"></div>
+                <form method="POST" action="{{ route('profile.destroy') }}" class="tw-p-6">
+                    @csrf
+                    @method('DELETE') <!-- Ensures the request is treated as DELETE -->
+
+                    <button type="submit"
+                        class="tw-bg-red-600 tw-text-white tw-font-bold tw-px-4 tw-py-2 tw-rounded hover:tw-bg-red-700 transition">
+                        <i class="fas fa-trash-alt tw-mr-2"></i> Delete Account
+                    </button>
+                </form> --}}
+
+
+                {{--  --}}
+                {{-- <a href="{{ route('edit-password') }}" class="dropdown-item"> --}}
+                {{-- <span class="float-right text-muted text-sm">3 mins</span> --}}
+                {{-- </a> --}}
+
+
+                {{-- <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> 3 new reports
+                    <span class="float-right text-muted text-sm">2 days</span>
+                </a> --}}
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
         </li>
+
+        {{--  --}}
     </ul>
 </nav>
 <!-- /.navbar -->

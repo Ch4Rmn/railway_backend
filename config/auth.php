@@ -123,5 +123,7 @@ return [
     */
 
     'password_timeout' => 10800,
+    // 'expiration' => 43200, // 30 days in minutes 
+
 
 ];

@@ -12,8 +12,8 @@
         <div class="d-flex justify-between align-content-center text-dark tw-bg-gray-400 tw-rounded-sm tw-m-2 shadow">
             <div class="m-1 d-inline-flex">
                 <i class="fas fa-th tw-p-2"></i>
-                <h1 class="tw-text-2xl tw-font-semibold tw-leading-tight tw-pe-2">
-                    {{ __('Dashboard') }}
+                <h1 class="tw-text-2xl tw-font-semibold tw-leading-tight tw-pe-2 ">
+                    <a href="/" class="text-decoration-none">{{ __('Dashboard') }}</a>
                 </h1>
             </div>
         </div>
@@ -31,11 +31,11 @@
             </div> --}}
             <x-card>
                 <div class="row tw-p-4">
-                    <div class="col-3"></div>
-                    <div class="text-center col-5">
+                    <div class="col-3 "></div>
+                    <div class="text-center col-5 ">
                         <img src="{{ asset('images/Control Panel.gif') }}" alt="" class="img-fluid">
 
-                        <h5 class="tw-font-bold">Welcome from {{ config('app.name') }}</h5>
+                        <h5 class="tw-font-bold tw-text-theme">Welcome from {{ config('app.name') }}</h5>
                     </div>
                     <div class="col-3"></div>
                 </div>
