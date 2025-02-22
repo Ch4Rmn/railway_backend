@@ -29,13 +29,14 @@ class PasswordController extends Controller
         //     'password' => ['required', Password::defaults(), 'confirmed'],
         // ]);
         try {
+            // throw new \Exception('hello world');
             $validated = $request->validated();
 
             $request->user()->update([
                 'password' => Hash::make($validated['password']),
             ]);
 
-            return back()->with('status', 'password-updated');
+            return back()->with('success', 'password-updated');
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors(), 'updatePassword');
         }

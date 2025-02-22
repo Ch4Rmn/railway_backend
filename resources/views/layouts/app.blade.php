@@ -37,6 +37,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     {{-- --}}
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
+    {{-- --}}
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -101,6 +103,7 @@
 <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+{{--  --}}
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -110,8 +113,33 @@
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 {{-- jsValidator --}}
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+{{--  --}}
+<script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 
 {{-- --}}
+<script>
+    $(document).ready(function() {
+        // $('.toastrDefaultSuccess').click(function() {
+        @if (session('success'))
+            toastr.success('{{ session('success') }}')
+        @elseif (session('error'))
+            toastr.error('{{ session('error') }}')
+        @endif
+        // });
+    })
+    // $('.toastrDefaultSuccess').click(function() {
+    //     toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    // });
+    // $('.toastrDefaultInfo').click(function() {
+    //     toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    // });
+    // $('.toastrDefaultError').click(function() {
+    //     toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    // });
+    // $('.toastrDefaultWarning').click(function() {
+    //     toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+    // });
+</script>
 @stack('scripts')
 
 </html>

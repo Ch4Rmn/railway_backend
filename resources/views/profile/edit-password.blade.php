@@ -30,6 +30,7 @@
                 </div>
             </div> --}}
         <x-card>
+            <x-error-flash-message></x-error-flash-message>
             <div class="row tw-p-4 container-fluid">
                 <form method="post" action="{{ route('update-password') }}" class="tw-w-full tw-space-y-6" id="form">
                     @csrf
